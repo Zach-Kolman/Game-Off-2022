@@ -60,7 +60,7 @@ public class EnemyStates : MonoBehaviour
                 agent.destination = currentWaypoint.position;
                 agent.speed = Mathf.Lerp(agent.speed, 2, Time.deltaTime * 4);
 
-                if (offset.magnitude > 0.65f)
+                if (offset.magnitude > 1f)
                 {
                     return;
                 }

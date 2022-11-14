@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d8fb533306971a428889a8717ddaf01, type: 3}
   m_Name: Photo of Boss' Son
   m_EditorClassIdentifier: 
-  nameText: 
-  descText: 
+  nameText: Photo of the Boss' Son
+  descText: A photo of the Boss's 10 year old son. This photo was taken early last
+    evening.
   image: {fileID: 21300000, guid: deeae33315027e045bf104c3f198179d, type: 3}
