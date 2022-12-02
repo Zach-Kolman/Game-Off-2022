@@ -54,6 +54,10 @@ public class EnemyFieldOfView : MonoBehaviour
                 {
                     canSee = true;
                     gameOverCanvas.SetActive(true);
+                    player.GetComponent<CharacterController>().enabled = false;
+                    gameObject.GetComponent<EnemyStates>().currentState = EnemyStates.EnemyState.SawYou;
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
                 }
                 else
                 {

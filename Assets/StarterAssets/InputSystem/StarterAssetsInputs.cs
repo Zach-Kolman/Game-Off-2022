@@ -14,6 +14,7 @@ namespace StarterAssets
 		public bool sprint;
 		public bool menu;
 		public bool use;
+		public bool restart;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -55,6 +56,11 @@ namespace StarterAssets
         {
 			UseInput(value.isPressed);
         }
+
+		public void OnRestart(InputValue value)
+		{
+			RestartInput(value.isPressed);
+		}
 #endif
 
 
@@ -87,6 +93,11 @@ namespace StarterAssets
         {
 			use = newUseState;
         }
+
+		private void RestartInput(bool newRestartState)
+		{
+			restart = newRestartState;
+		}
 
 		private void OnApplicationFocus(bool hasFocus)
 		{

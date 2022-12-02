@@ -6,49 +6,50 @@ using TMPro;
 
 public class ItemPanel : MonoBehaviour
 {
+    [HideInInspector]
     //the image attached to this game object
-    public Image itemImage;
+    public Image itemPanelImage;
 
-    [HideInInspector]
-    public TextMeshProUGUI itemDesc;
-    [HideInInspector]
-    public TextMeshProUGUI itemName;
 
     //the image the panel displays
-    public Image panelImage;
+    public Image mainPanelImage;
 
     //the descriptive text the panel displays
-    public TextMeshProUGUI panelText;
+    public TextMeshProUGUI mainPanelText;
 
     //the name text the panel displays
-    public TextMeshProUGUI panelName;
+    public TextMeshProUGUI mainPanelName;
+
 
     public int itemIndex;
+
+    private SimplePickup slottedItem;
 
     public GameObject player;
 
     private void Start()
     {
         //player = GameObject.FindGameObjectWithTag("Player");
+        itemPanelImage = gameObject.GetComponent<Image>();
     }
 
     private void Update()
     {
-        if (itemIndex > player.GetComponent<PlayerInventory>().inventoryObjects.Count - 1) return;
-        itemImage.sprite = player.GetComponent<PlayerInventory>().inventoryObjects[itemIndex].image;
+        
     }
 
     public void SetMainPanelInfo()
     {
-        panelImage.sprite = this.itemImage.sprite;
-        itemDesc.text = player.GetComponent<PlayerInventory>().inventoryObjects[itemIndex].descText;
-        itemName.text = player.GetComponent<PlayerInventory>().inventoryObjects[itemIndex].nameText;
+        if (itemIndex > player.GetComponent<PlayerInventory>().inventoryObjects.Count - 1) return;
+        mainPanelImage.sprite = player.GetComponent<PlayerInventory>().inventoryObjects[itemIndex].image;
+        mainPanelText.text = player.GetComponent<PlayerInventory>().inventoryObjects[itemIndex].descText;
+        mainPanelName.text = player.GetComponent<PlayerInventory>().inventoryObjects[itemIndex].nameText;
     }
 
     public void UnsetMainPanelInfo()
     {
-        panelImage.sprite = null;
-        itemDesc.text = "";
-        itemName.text = "";
+        mainPanelImage.sprite = null;
+        mainPanelText.text = "";
+        mainPanelName.text = "";
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class OpenableDoor : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class OpenableDoor : MonoBehaviour
     public Transform door1;
 
     public Transform door2;
+
+    public bool isLevelChange = false;
 
     private void Start()
     {
@@ -43,6 +46,10 @@ public class OpenableDoor : MonoBehaviour
             }
 
             hasOpened = true;
+
+            if (!isLevelChange) return;
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else
         {
